@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Initiatives {
+  id                 Int                  @id @default(autoincrement())
+  decision           String?              @db.Text
+  date               DateTime?            @db.Date
+  acceptance_status  String?              @db.VarChar(255)
+  ProjectInitiatives ProjectInitiatives[]
+}
+
+model Milestones {
+  id         Int       @id @default(autoincrement())
+  project_id Int
+  title      String    @db.VarChar(255)
+  due_date   DateTime? @db.Date
+  Projects   Projects? @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Milestones_ibfk_1")
+
+  @@index([project_id], map: "project_id")
+}
+
+model ProjectInitiatives {
+  project_id    Int
+  initiative_id Int
+  Projects      Projects    @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ProjectInitiatives_ibfk_1")
+  Initiatives   Initiatives @relation(fields: [initiative_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ProjectInitiatives_ibfk_2")
+
+  @@id([project_id, initiative_id])
+  @@index([initiative_id], map: "initiative_id")
+}
+
+model Projects {
+  id                 Int                  @id @default(autoincrement())
+  name               String               @db.VarChar(255)
+  description        String?              @db.Text
+  user_id            Int?
+  Milestones         Milestones[]
+  ProjectInitiatives ProjectInitiatives[]
+  Users              Users?               @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Projects_ibfk_1")
+
+  @@index([user_id], map: "user_id")
+}
+
+model Users {
+  id       Int        @id @default(autoincrement())
+  username String     @db.VarChar(255)
+  email    String     @db.VarChar(255)
+  Projects Projects[]
+}

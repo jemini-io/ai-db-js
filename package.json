@@ -1,0 +1,36 @@
+{
+  "name": "ai-db-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "nodemon",
+    "db:init": "npx prisma db pull && npx prisma generate && npx @snaplet/seed init prisma/seed",
+    "db:seed": "npx tsx prisma/seed/seed.ts",
+    "test": "echo \"Works as coded.\""
+  },
+  "author": "Dan Villa <dan@jemini.io>",
+  "license": "",
+  "dependencies": {
+    "@langchain/openai": "^0.0.29",
+    "@prisma/client": "^5.14.0",
+    "@types/node": "^20.12.12",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.2",
+    "express": "^4.19.2",
+    "langchain": "^0.1.37",
+    "mysql2": "^3.9.7",
+    "nodemon": "^3.1.0",
+    "prisma": "^5.14.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.10.3",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@snaplet/seed": "^0.97.20",
+    "@types/express": "^4.17.21"
+  },
+  "@snaplet/seed": {
+    "config": "prisma\\seed\\seed.config.ts"
+  }
+}
