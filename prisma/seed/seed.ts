@@ -14,9 +14,9 @@ const main = async () => {
 
   await seed.milestones((x) => x(100));
 
-  await seed.initatives((x) => x(10));
+  await seed.initiatives((x) => x(10));
 
-  await seed.projectInitatives((x) => x(10));
+  await seed.projectInitiatives((x) => x(10));
 
   console.log('Database seeded successfully!');
 

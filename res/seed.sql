@@ -4,7 +4,7 @@ INSERT INTO Users (username, email) VALUES ('JohnDoe', 'john@example.com'), ('Ja
 
 -- Inserting Projects
 INSERT INTO Projects (name, description, user_id) VALUES ('AI Research', 'Research project on AI', 1), ('Blockchain Development', 'Development of blockchain systems', 2);
-INSERT INTO Projects (name, description, user_id) VALUES ('Research', 'Research project', 1)
+INSERT INTO Projects (name, description, user_id) VALUES ('Research', 'Research project', 1);
 
 -- Inserting Milestones
 INSERT INTO Milestones (project_id, title, due_date) VALUES (1, 'Initial Study', '2024-06-01'), (1, 'Prototype Development', '2024-09-01');

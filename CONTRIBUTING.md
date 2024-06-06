@@ -8,11 +8,14 @@ Install dependencies.
 npm i
 ```
 
-Create your DB.
+Setup the database.
 
-- Create a Mysql database called `test`
-- Use `res/schema.sql` to initialize the tables.
-- Seed the data either with `res/seed.sql` or the [Data Seed](./DataSeed.md) guide.
+```sh
+docker-compose up -d
+npm run db:setup
+```
+
+Seed additional data with the [Data Seed](./DataSeed.md) guide.
 
 Add Env Vars
 

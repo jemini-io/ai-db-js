@@ -1,0 +1,463 @@
+{
+  "models": {
+    "Initiatives": {
+      "id": "test.Initiatives",
+      "schemaName": "test",
+      "tableName": "Initiatives",
+      "fields": [
+        {
+          "id": "test.Initiatives.acceptance_status",
+          "name": "acceptance_status",
+          "columnName": "acceptance_status",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 255
+        },
+        {
+          "id": "test.Initiatives.date",
+          "name": "date",
+          "columnName": "date",
+          "type": "date",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "test.Initiatives.decision",
+          "name": "decision",
+          "columnName": "decision",
+          "type": "text",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 65535
+        },
+        {
+          "id": "test.Initiatives.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "test.Initiatives.id",
+            "increment": 1,
+            "start": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "name": "ProjectInitiatives",
+          "type": "ProjectInitiatives",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "ProjectInitiativesToInitiatives",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "test.Initiatives.id",
+          "fields": [
+            "id"
+          ]
+        }
+      ]
+    },
+    "Milestones": {
+      "id": "test.Milestones",
+      "schemaName": "test",
+      "tableName": "Milestones",
+      "fields": [
+        {
+          "id": "test.Milestones.due_date",
+          "name": "due_date",
+          "columnName": "due_date",
+          "type": "date",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "test.Milestones.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "test.Milestones.id",
+            "increment": 1,
+            "start": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "test.Milestones.project_id",
+          "name": "project_id",
+          "columnName": "project_id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "test.Milestones.title",
+          "name": "title",
+          "columnName": "title",
+          "type": "varchar",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 255
+        },
+        {
+          "name": "Projects",
+          "type": "Projects",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "MilestonesToProjects",
+          "relationFromFields": [
+            "project_id"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "test.Milestones.id",
+          "fields": [
+            "id"
+          ]
+        }
+      ]
+    },
+    "ProjectInitiatives": {
+      "id": "test.ProjectInitiatives",
+      "schemaName": "test",
+      "tableName": "ProjectInitiatives",
+      "fields": [
+        {
+          "id": "test.ProjectInitiatives.initiative_id",
+          "name": "initiative_id",
+          "columnName": "initiative_id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "test.ProjectInitiatives.project_id",
+          "name": "project_id",
+          "columnName": "project_id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "name": "Initiatives",
+          "type": "Initiatives",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "ProjectInitiativesToInitiatives",
+          "relationFromFields": [
+            "initiative_id"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "Projects",
+          "type": "Projects",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "ProjectInitiativesToProjects",
+          "relationFromFields": [
+            "project_id"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "test.ProjectInitiatives.project_id_initiative_id",
+          "fields": [
+            "project_id",
+            "initiative_id"
+          ]
+        }
+      ]
+    },
+    "Projects": {
+      "id": "test.Projects",
+      "schemaName": "test",
+      "tableName": "Projects",
+      "fields": [
+        {
+          "id": "test.Projects.description",
+          "name": "description",
+          "columnName": "description",
+          "type": "text",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 65535
+        },
+        {
+          "id": "test.Projects.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "test.Projects.id",
+            "increment": 1,
+            "start": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "test.Projects.name",
+          "name": "name",
+          "columnName": "name",
+          "type": "varchar",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 255
+        },
+        {
+          "id": "test.Projects.user_id",
+          "name": "user_id",
+          "columnName": "user_id",
+          "type": "int",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "name": "Users",
+          "type": "Users",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "ProjectsToUsers",
+          "relationFromFields": [
+            "user_id"
+          ],
+          "relationToFields": [
+            "id"
+          ],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "Milestones",
+          "type": "Milestones",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "MilestonesToProjects",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "ProjectInitiatives",
+          "type": "ProjectInitiatives",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "ProjectInitiativesToProjects",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "test.Projects.id",
+          "fields": [
+            "id"
+          ]
+        }
+      ]
+    },
+    "Users": {
+      "id": "test.Users",
+      "schemaName": "test",
+      "tableName": "Users",
+      "fields": [
+        {
+          "id": "test.Users.email",
+          "name": "email",
+          "columnName": "email",
+          "type": "varchar",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 255
+        },
+        {
+          "id": "test.Users.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "int",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "test.Users.id",
+            "increment": 1,
+            "start": 1
+          },
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "test.Users.username",
+          "name": "username",
+          "columnName": "username",
+          "type": "varchar",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 255
+        },
+        {
+          "name": "Projects",
+          "type": "Projects",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "ProjectsToUsers",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "test.Users.id",
+          "fields": [
+            "id"
+          ]
+        }
+      ]
+    }
+  },
+  "enums": {}
+}

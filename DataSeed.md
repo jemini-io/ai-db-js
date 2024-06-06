@@ -8,6 +8,18 @@
 
 Ensure your `.env` sets a proper `DATABASE_URL` to point to a real DB.
 
+## QuickStart
+
+Run the setup, generate, and seed commands.
+
+```sh
+npm run db:generate;
+
+npm run db:seed;
+```
+
+## Detailed Steps
+
 Use prisma to create a schema from the db.
 
 ```sh
@@ -37,3 +49,5 @@ Run the seeder.
 ```sh
 npx tsx prisma/seed/seed.ts
 ```
+
+NOTE: You have to use `tsx`, not `ts-node`.

@@ -20,7 +20,7 @@ model Milestones {
   project_id Int
   title      String    @db.VarChar(255)
   due_date   DateTime? @db.Date
-  Projects   Projects? @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Milestones_ibfk_1")
+  Projects   Projects  @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Milestones_ibfk_1")
 
   @@index([project_id], map: "project_id")
 }
