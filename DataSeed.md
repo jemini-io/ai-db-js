@@ -13,12 +13,12 @@ Ensure your `.env` sets a proper `DATABASE_URL` to point to a real DB.
 Run the setup, generate, and seed commands.
 
 ```sh
-npm run db:generate;
-
-npm run db:seed;
+npm run db
 ```
 
-## Detailed Steps
+Note: You'll have to choose `Y/n` for Snaplet.
+
+## Prisma
 
 Use prisma to create a schema from the db.
 

@@ -5,6 +5,7 @@
   "main": "src/server.ts",
   "scripts": {
     "dev": "nodemon",
+    "db": "npm run db:setup && npm run db:generate && npm run db:seed",
     "db:setup": "res/setup-db.sh",
     "db:generate": "npx prisma db pull && npx prisma generate && npx @snaplet/seed init prisma/seed",
     "db:seed": "npx tsx prisma/seed/seed.ts",

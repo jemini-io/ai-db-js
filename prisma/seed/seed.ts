@@ -6,7 +6,7 @@ const main = async () => {
   console.log('Seeding...');
   const seed = await createSeedClient();
 
-  await seed.$resetDatabase();
+  // await seed.$resetDatabase();
 
   await seed.users((x) => x(5));
 

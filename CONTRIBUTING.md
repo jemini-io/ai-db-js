@@ -8,6 +8,8 @@ Install dependencies.
 npm i
 ```
 
+Ensure you have an `.env` file with a `DATABASE_URL` var.
+
 Setup the database.
 
 ```sh
@@ -17,10 +19,7 @@ npm run db:setup
 
 Seed additional data with the [Data Seed](./DataSeed.md) guide.
 
-Add Env Vars
-
-- Ensure you have an `.env` file.
-- Add your `OPENAI_API_KEY` to the file.
+Add your `OPENAI_API_KEY` to the `.env` file.
 
 Start the app
 
